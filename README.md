@@ -58,3 +58,6 @@ This project will eventually use:
 - [ ] Responsive Design
 - [ ] JavaScript
 - [ ] Final Client Website
+
+## 9/14/2026
+Creating site header and nav
