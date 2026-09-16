@@ -61,4 +61,7 @@ This project will eventually use:
 
 ## 9/14/2026
 Creating site header and nav
+## 9/14/2026
 Create hero and about sections
+## 9/16/2026
+Add Services and contact informatiion
