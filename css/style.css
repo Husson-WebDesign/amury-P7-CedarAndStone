@@ -1,6 +1,6 @@
 /* =========================
    Global Styles
-   Cedar & Stone Home Services - Phase 1
+   Cedar & Stone Home Services
    Author: Richard Amury Ongala   Date: 10/18/2026
 ========================= */
 :root {
@@ -10,9 +10,12 @@
   --background-color: #ffffff;
   --surface-color: #eef1ee;    /* light granite */
   --text-color: #1f2a27;
+  --error-color: #a4262c;
+  --success-color: #2e7d4f;
   --radius: 6px;
 }
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--background-color); color: var(--text-color);
   font-family: "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; }
 img { max-width: 100%; height: auto; display: block; }
@@ -67,11 +70,12 @@ p { margin: 0 0 1rem; max-width: 70ch; }
    Main Content
 ========================= */
 main section { padding: 3rem 0; }
+main section.hero { padding: 4.5rem 0; }
 .alt { background: var(--surface-color); }
 .two-column { display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; }
 .two-column > * { flex: 1 1 280px; min-width: 0; }
 .feature-image { border-radius: var(--radius); }
-.notice { background: #fff8e8; border-left: 5px solid var(--accent-color); padding: .9rem 1.1rem; font-size: .95rem; }
+.notice { background: #fff8e8; border-left: 5px solid var(--accent-color); padding: .9rem 1.1rem; font-size: .95rem; margin-bottom: 1rem; }
 .notice p { margin: 0; }
 
 /* Grid layouts */
@@ -94,7 +98,7 @@ main section { padding: 3rem 0; }
 .card dl { margin: 0; }
 .card dt { font-weight: bold; color: var(--primary-color); margin-top: .5rem; }
 .card dd { margin: 0; }
-.button { display: inline-block; padding: .8rem 1.5rem; background: var(--accent-color); color: #1b1b1b; font-weight: bold; text-decoration: none; border: 2px solid var(--accent-color); border-radius: var(--radius); cursor: pointer; font-size: 1rem; }
+.button { display: inline-block; padding: .8rem 1.5rem; background: var(--accent-color); color: #1b1b1b; font-weight: bold; text-decoration: none; border: 2px solid var(--accent-color); border-radius: var(--radius); cursor: pointer; font-size: 1rem; font-family: inherit; }
 .button:hover { background: #dba33a; border-color: #dba33a; }
 .button.secondary { background: transparent; color: #fff; border-color: #fff; }
 .button.secondary:hover { background: rgba(255,255,255,.15); }
@@ -130,7 +134,7 @@ form .button { margin-top: 1.25rem; }
 .skip-link:focus { top: 1rem; }
 /* Visible keyboard focus: dark ring on light areas, light ring on dark areas */
 a:focus-visible, button:focus-visible, .button:focus-visible { outline: 3px solid var(--primary-color); outline-offset: 3px; }
-.site-header a:focus-visible, .site-nav a:focus-visible, .hero a:focus-visible,
+.site-header a:focus-visible, .site-header button:focus-visible, .site-nav a:focus-visible, .hero a:focus-visible,
 .cta-band a:focus-visible, .site-footer a:focus-visible { outline-color: #fff; }
 .site-nav .nav-quote:focus-visible { outline-color: #fff; }
 .nav-quote-item { margin-left: auto; }
@@ -146,7 +150,7 @@ a:focus-visible, button:focus-visible, .button:focus-visible { outline: 3px soli
 ========================= */
 @media (max-width: 900px) {
   .card-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero { padding: 3rem 0; }
+  .hero, main section.hero { padding: 3rem 0; }
   main section { padding: 2.25rem 0; }
   .site-nav a { padding: .8rem .75rem; }
 }
@@ -171,3 +175,38 @@ a:focus-visible, button:focus-visible, .button:focus-visible { outline: 3px soli
   form { padding: 1rem; }
   .section-title { border-left-width: 4px; }
 }
+
+/* =========================
+   Phase 3: Mobile Menu
+   The "js" class is added by script.js, so the menu stays visible
+   if JavaScript fails to load.
+========================= */
+.menu-toggle { display: none; padding: .6rem 1.1rem; background: transparent; color: #fff; border: 2px solid #fff; border-radius: var(--radius); font: inherit; font-weight: bold; cursor: pointer; }
+.menu-toggle:hover { background: rgba(255,255,255,.15); }
+
+@media (max-width: 600px) {
+  .js .menu-toggle { display: inline-block; }
+  .js .site-nav { display: none; }
+  .js .site-nav.open { display: block; }
+}
+
+/* =========================
+   Phase 3: Form Validation
+========================= */
+.error-message { color: var(--error-color); font-weight: bold; font-size: .9rem; margin: .35rem 0 0; }
+.error-message:empty { display: none; }
+.invalid { border: 2px solid var(--error-color); }
+.optional { font-weight: normal; color: var(--secondary-color); }
+.form-status { background: #e8f3ec; border-left: 5px solid var(--success-color); padding: .9rem 1.1rem; margin: 1.25rem 0 0; font-weight: bold; color: #17432b; max-width: none; }
+.form-status:empty { display: none; }
+.form-note { font-size: .9rem; color: var(--secondary-color); margin: 1rem 0 0; }
+
+/* =========================
+   Phase 3: Business Hours Status
+========================= */
+.hours-status { display: inline-flex; align-items: center; gap: .6rem; padding: .5rem 1rem; border-radius: 999px; font-weight: bold; background: #fff; border: 2px solid var(--secondary-color); color: var(--text-color); margin: 0 0 1rem; max-width: none; }
+.hours-status::before { content: ""; width: .8rem; height: .8rem; border-radius: 50%; background: var(--secondary-color); flex: none; }
+.hours-status.open { border-color: var(--success-color); color: #17432b; }
+.hours-status.open::before { background: var(--success-color); }
+.hours-status.closed { border-color: var(--error-color); color: #6e1a1e; }
+.hours-status.closed::before { background: var(--error-color); }
