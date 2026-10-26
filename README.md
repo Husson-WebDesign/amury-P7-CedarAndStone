@@ -53,8 +53,15 @@ This project will eventually use:
 ## Project Status
 
 - [x] Lab 0 - Development Environment Setup
-- [ ] Lab 1 - HTML Structure
-- [ ] Lab 2 - CSS Design
+- [x] Lab 1 - HTML Structure
+- [x] Lab 2 - CSS Design
 - [ ] Responsive Design
 - [ ] JavaScript
 - [ ] Final Client Website
+
+## 9/14/2026
+Creating site header and nav
+## 9/14/2026
+Create hero and about sections
+## 9/16/2026
+Add Services and contact informatiion
