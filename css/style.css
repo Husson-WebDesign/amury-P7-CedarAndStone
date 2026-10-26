@@ -1,15 +1,15 @@
-   /* =========================
-      Global Styles
+/* =========================
+   Global Styles
    Cedar & Stone Home Services - Phase 1
    Author: Richard Amury Ongala   Date: 10/18/2026
 ========================= */
 :root {
-  --primary-color:#1d3b34;    /* spruce */
-  --secondary-color:#51606b;  /* slate */
-  --accent-color:#c58a1b;     /* cedar ochre */
+  --primary-color: #1d3b34;    /* spruce */
+  --secondary-color: #51606b;  /* slate */
+  --accent-color: #c58a1b;     /* cedar ochre */
   --background-color: #ffffff;
-  --surface-color:#eef1ee;    /* light granite */
-  --text-color:#1f2a27;
+  --surface-color: #eef1ee;    /* light granite */
+  --text-color: #1f2a27;
   --radius: 6px;
 }
 * { box-sizing: border-box; }
@@ -24,8 +24,8 @@ ul { padding-left: 1.2rem; }
    Typography
 ========================= */
 h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; color: var(--primary-color); line-height: 1.2; margin: 0 0 .75rem; }
-h1 { font-size: 2.6rem; }
-h2 { font-size: 2rem; }
+h1 { font-size: clamp(2rem, 5vw, 2.6rem); }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); }
 h3 { font-size: 1.3rem; }
 p { margin: 0 0 1rem; max-width: 70ch; }
 .section-title { border-left: 6px solid var(--accent-color); padding-left: .75rem; margin-bottom: 1.5rem; }
@@ -57,7 +57,7 @@ p { margin: 0 0 1rem; max-width: 70ch; }
   background-image: repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 2px, transparent 2px 64px),
                     repeating-linear-gradient(90deg, rgba(255,255,255,.04) 0 2px, transparent 2px 120px);
   padding: 4.5rem 0; }
-.hero h1 { color: #fff; max-width: 18ch; font-size: 3.2rem; }
+.hero h1 { color: #fff; max-width: 18ch; font-size: clamp(2.1rem, 6vw, 3.2rem); }
 .hero p { font-size: 1.15rem; color: #e4ebe7; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
 .page-banner { background: var(--surface-color); padding: 2.5rem 0 1.5rem; border-bottom: 1px solid #d5dbd6; }
@@ -69,7 +69,7 @@ p { margin: 0 0 1rem; max-width: 70ch; }
 main section { padding: 3rem 0; }
 .alt { background: var(--surface-color); }
 .two-column { display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; }
-.two-column > * { flex: 1 1 320px; }
+.two-column > * { flex: 1 1 280px; min-width: 0; }
 .feature-image { border-radius: var(--radius); }
 .notice { background: #fff8e8; border-left: 5px solid var(--accent-color); padding: .9rem 1.1rem; font-size: .95rem; }
 .notice p { margin: 0; }
@@ -107,7 +107,7 @@ main section { padding: 3rem 0; }
 form { background: #fff; border: 1px solid #d5dbd6; border-radius: var(--radius); padding: 1.5rem; }
 label { display: block; font-weight: bold; margin: 1rem 0 .3rem; }
 input, select, textarea { width: 100%; padding: .75rem; font: inherit; border: 1px solid #9aa6a0; border-radius: var(--radius); }
-input:focus, select:focus, textarea:focus, a:focus-visible, .button:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 2px; }
+input:focus, select:focus, textarea:focus { outline: 3px solid var(--primary-color); outline-offset: 2px; }
 textarea { min-height: 140px; }
 form .button { margin-top: 1.25rem; }
 
@@ -123,3 +123,51 @@ form .button { margin-top: 1.25rem; }
 .site-footer p { margin: 0 0 .5rem; }
 .copyright { border-top: 1px solid #3b524b; margin-top: 1.5rem; padding-top: 1rem; font-size: .9rem; }
 
+/* =========================
+   Accessibility (Phase 2)
+========================= */
+.skip-link { position: absolute; left: 1rem; top: -4rem; background: #fff; color: var(--primary-color); padding: .75rem 1rem; font-weight: bold; z-index: 10; }
+.skip-link:focus { top: 1rem; }
+/* Visible keyboard focus: dark ring on light areas, light ring on dark areas */
+a:focus-visible, button:focus-visible, .button:focus-visible { outline: 3px solid var(--primary-color); outline-offset: 3px; }
+.site-header a:focus-visible, .site-nav a:focus-visible, .hero a:focus-visible,
+.cta-band a:focus-visible, .site-footer a:focus-visible { outline-color: #fff; }
+.site-nav .nav-quote:focus-visible { outline-color: #fff; }
+.nav-quote-item { margin-left: auto; }
+/* Touch-friendly targets */
+.header-phone { padding: .6rem 0; }
+.site-footer li a { display: inline-block; padding: .4rem 0; }
+.site-footer a { overflow-wrap: anywhere; }
+.card, .notice, .card-grid > * { min-width: 0; overflow-wrap: break-word; }
+
+/* =========================
+   Responsive: Tablet (max-width 900px)
+   Three-column grids become two columns; hero and spacing tighten.
+========================= */
+@media (max-width: 900px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding: 3rem 0; }
+  main section { padding: 2.25rem 0; }
+  .site-nav a { padding: .8rem .75rem; }
+}
+
+/* =========================
+   Responsive: Phone (max-width 600px)
+   One column, stacked touch-friendly navigation, stacked header/footer/CTA.
+========================= */
+@media (max-width: 600px) {
+  .card-grid, .card-grid.two { grid-template-columns: 1fr; }
+  .header-top { flex-direction: column; align-items: flex-start; gap: .25rem; }
+  .brand { font-size: 1.35rem; }
+  .site-nav ul { flex-direction: column; gap: 0; }
+  .site-nav li { border-top: 1px solid #2c4740; }
+  .site-nav a { padding: .9rem 1rem; }
+  .nav-quote-item { margin-left: 0; }
+  .site-nav .nav-quote { text-align: center; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .button, .cta-band .button { width: 100%; text-align: center; }
+  .cta-band .container { flex-direction: column; align-items: flex-start; }
+  .footer-columns { flex-direction: column; gap: 1.25rem; }
+  form { padding: 1rem; }
+  .section-title { border-left-width: 4px; }
+}
