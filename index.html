@@ -13,7 +13,7 @@
 
     <header class="site-header">
         <div class="container header-top">
-            <a class="brand" href="#home">
+            <a class="brand" href="index.html">
                 Cedar &amp; Home Services
                 <small>Practical home repairs. Dependable local service.</small>
             </a>
@@ -26,11 +26,11 @@
         <nav class="site-nav" id="main-navigation" aria-label="Main navigation">
             <div class="container">
                 <ul>
-                    <li><a href="#home" aria-current="page">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li class="nav-quote-item"><a class="nav-quote" href="#contact">Free Estimate</a></li>
+                    <li><a href="index.html" aria-current="page">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="nav-quote-item"><a class="nav-quote" href="estimate.html">Free Estimate</a></li>
                 </ul>
             </div>
         </nav>
@@ -43,8 +43,8 @@
                 <h1>Cedar &amp; Home Services</h1>
                 <p>Practical home repairs. Dependable local service.</p>
                 <div class="hero-actions">
-                    <a class="button" href="#services">Explore Our Services</a>
-                    <a class="button secondary" href="#contact">Contact Us</a>
+                    <a class="button" href="services.html">Explore Our Services</a>
+                    <a class="button secondary" href="estimate.html">Get a Free Estimate</a>
                 </div>
             </div>
         </section>
@@ -54,7 +54,7 @@
                 <div>
                     <h2 class="section-title">Welcome to Cedar &amp; Home Services</h2>
                     <p>We provide reliable and affordable home repair services in your neighborhood.</p>
-                    <a class="button" href="#services">Learn More</a>
+                    <a class="button" href="about.html">About Us</a>
                 </div>
                 <img class="feature-image"
                      src="images/home-repair.jpg"
@@ -62,100 +62,31 @@
             </div>
         </section>
 
-        <section id="about" class="alt">
+        <section class="alt">
             <div class="container">
-                <h2 class="section-title">About Us</h2>
-                <p>Cedar &amp; Home Services is a locally owned and operated business dedicated to
-                    providing high-quality home repair services. Our team of skilled professionals
-                    is committed to ensuring your home remains safe, functional, and beautiful.</p>
-                <p>Cedar &amp; Stone Home Services was created to help homeowners and
-                    landlords handle the smaller repairs, maintenance tasks,
-                    and improvement projects that often accumulate around a property.</p>
-            </div>
-        </section>
-
-        <section id="services">
-            <div class="container">
-                <h2 class="section-title">Our Services</h2>
-
+                <h2 class="section-title">What We Do</h2>
                 <div class="card-grid">
                     <article class="card">
                         <h3>Deck Maintenance</h3>
-                        <p>Minor deck repairs, board replacement, inspection, cleaning, and preparation
-                            for continued seasonal use.</p>
+                        <p>Minor deck repairs, board replacement, inspection, and cleaning.</p>
                     </article>
-
                     <article class="card">
                         <h3>Carpentry Repairs</h3>
-                        <p>Repair and improvement of common residential woodwork, trim, doors, railings,
-                            shelving, and similar items.</p>
+                        <p>Woodwork, trim, doors, railings, shelving, and similar items.</p>
                     </article>
-
                     <article class="card">
                         <h3>Seasonal Home Maintenance</h3>
-                        <p>Routine seasonal services designed to help homeowners prepare their property
-                            for changing Maine weather.</p>
+                        <p>Routine services to prepare your property for changing Maine weather.</p>
                     </article>
                 </div>
+                <p><a class="button" href="services.html">See All Services</a></p>
             </div>
         </section>
 
-        <section id="contact" class="alt">
+        <section class="cta-band">
             <div class="container">
-                <h2 class="section-title">Contact Us</h2>
-                <p>Ready to get started? Reach out to Cedar &amp; Home Services today
-                    for a free estimate on your next home repair project.</p>
-
-                <div class="two-column">
-                    <div>
-                        <p id="hours-status" class="hours-status" role="status"></p>
-                        <div class="notice">
-                            <p>Location: 123 Main Street, Bangor, Maine</p>
-                            <p>Phone: (207) 555-0107</p>
-                            <p>Email: marcus@cedarstonehome.example</p>
-                            <p>Opening Hours: Monday - Friday, 8:00 AM - 5:00 PM</p>
-                        </div>
-                    </div>
-
-                    <form id="contact-form" novalidate>
-                        <h3>Request a free estimate</h3>
-
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" autocomplete="name"
-                               aria-describedby="name-error">
-                        <p class="error-message" id="name-error"></p>
-
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" autocomplete="email"
-                               aria-describedby="email-error">
-                        <p class="error-message" id="email-error"></p>
-
-                        <label for="phone">Phone <span class="optional">(optional)</span></label>
-                        <input type="tel" id="phone" name="phone" autocomplete="tel"
-                               aria-describedby="phone-error">
-                        <p class="error-message" id="phone-error"></p>
-
-                        <label for="service">Service needed</label>
-                        <select id="service" name="service" aria-describedby="service-error">
-                            <option value="">Select a service</option>
-                            <option value="deck">Deck Maintenance</option>
-                            <option value="carpentry">Carpentry Repairs</option>
-                            <option value="seasonal">Seasonal Home Maintenance</option>
-                            <option value="other">Other / Not sure</option>
-                        </select>
-                        <p class="error-message" id="service-error"></p>
-
-                        <label for="message">Project details</label>
-                        <textarea id="message" name="message"
-                                  aria-describedby="message-error"></textarea>
-                        <p class="error-message" id="message-error"></p>
-
-                        <button class="button" type="submit">Send Request</button>
-
-                        <p class="form-status" id="form-status" role="status"></p>
-                        <p class="form-note">This form is a front-end demonstration. It does not send your information anywhere yet.</p>
-                    </form>
-                </div>
+                <h2>Ready for a free estimate?</h2>
+                <a class="button" href="estimate.html">Request a Free Estimate</a>
             </div>
         </section>
 
@@ -163,6 +94,29 @@
 
     <footer class="site-footer">
         <div class="container">
+            <div class="footer-columns">
+                <div>
+                    <h2>Cedar &amp; Home Services</h2>
+                    <p>Practical home repairs. Dependable local service.</p>
+                    <p>123 Main Street, Bangor, Maine</p>
+                </div>
+                <div>
+                    <h2>Contact</h2>
+                    <p>Phone: <a href="tel:+12075550107">(207) 555-0107</a></p>
+                    <p>Email: <a href="mailto:marcus@cedarstonehome.example">marcus@cedarstonehome.example</a></p>
+                    <p>Monday - Friday, 8:00 AM - 5:00 PM</p>
+                </div>
+                <div>
+                    <h2>Explore</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="estimate.html">Free Estimate</a></li>
+                    </ul>
+                </div>
+            </div>
             <p class="copyright">&copy; 2026 Cedar &amp; Home Services. All rights reserved.</p>
         </div>
     </footer>
